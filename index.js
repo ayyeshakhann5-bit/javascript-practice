@@ -31,29 +31,52 @@
 //   document.getElementById("myh3").textContent=circumference +"cm";
 // }
 
+// let username=window.prompt("What is your name?");
+
+//username=username.trim().toUpperCase()+username.trim().slice().toLowerCase();
+
+//OR 
+// username=username.trim();
+
+// let letter=username.charAt(0);
+// letter=letter.toUpperCase();
+
+// let rchars=username.slice(1);
+// rchars=rchars.toLowerCase();
+
+// username=letter+rchars;
+
+// console.log(username);
 
 
 
-// Random Number Generator
 
-const myButton=document.getElementById("myButton");
-const myLabel1=document.getElementById("myLabel1");
-const myLabel2=document.getElementById("myLabel2");
-const myLabel3=document.getElementById("myLabel3");
+
 const min=1;
-const max=6;
-let randomNum1;
-let randomNum2;
-let randomNum3;
+const max=100;
 
-myButton.onclick=function(){
-randomNum1=Math.floor(Math.random()*max)+min;
-randomNum2=Math.floor(Math.random()*max)+min;
-randomNum3=Math.floor(Math.random()*max)+min;
-myLabel1.textContent=randomNum1;
-myLabel2.textContent=randomNum2;
-myLabel3.textContent=randomNum3;
+const answer=Math.floor(Math.random()*(max-min+1)+min);
+
+let guess;
+let attempts=0;
+
+guess=window.prompt(`Guess a number between ${min} and ${max}`);
+
+let running=true;
+
+while(running){
+  if(guess<min || guess>max){
+    guess=window.prompt(`Please enter a number between ${min} and ${max}`);
+  }else if(guess<answer){
+    attempts++;
+    guess=window.prompt(`Too low! Guess again`);
+  }else if(guess>answer){
+    attempts++;
+    guess=window.prompt(`Too high! Guess again`);
+  }
+  else{
+    attempts++;
+    running=false;
+    alert(`You guessed it! The answer was ${answer}. It took you ${attempts} attempts.`);
+  }
 }
-console.log("JavaScript is connected!");
-console.log(myButton);
-console.log(myLabel);
