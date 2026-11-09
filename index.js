@@ -72,7 +72,7 @@ while(running){
     guess=window.prompt(`Too low! Guess again`);
   }else if(guess>answer){
     attempts++;
-    guess=window.prompt(`Too high! Guess again`);
+    guess=window.prompt(`Too high!! Guess again`);
   }
   else{
     attempts++;
